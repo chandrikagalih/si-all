@@ -35,7 +35,12 @@ const pool = new Pool({
 // ============================================================
 // MIDDLEWARE
 // ============================================================
-app.use(cors({ origin: process.env.FRONTEND_URL || '*' }));
+app.use(cors({ 
+  origin: [
+  'https://si-all.vercel.app/'],
+  methods: ['GET','POST','PUT','DELETE','OPTION'],
+  credentials: true
+  }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../frontend/public')));
 
